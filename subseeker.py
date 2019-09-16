@@ -237,7 +237,12 @@ def crtpySingle():
 def searchSubs():
 	if not options().domain:
 		print(colored("\nDomain needed to parse subs against!", "red"))
-		print(colored("Usage: ./subseeker.py -S -d [domain] -f [file to grab subs from] optional: -o [file to send results too.]\n", "red"))
+		print(colored("Usage: ./subseeker.py -d [domain] -f [file to grab subs from] optional: -o [file to send results too.]\n", "red"))
+		sys.exit(1)
+
+	elif not options().file:
+		print(colored("\nA file is needed to parse subs against!", "red"))
+		print(colored("Usage: ./subseeker.py -d [domain] -f [file to grab subs from] optional: -o [file to send results too.]\n", "red"))
 		sys.exit(1)
 
 	if options().domain.startswith("."):
@@ -269,8 +274,11 @@ def searchSubs():
 	if options().out:
 		with open(options().out, "a") as wf:
 			wf.write("\n".join(subset))
-			print(colored(f"\nYour output has been written too {options().out}", "yellow"))
-			grabCount()
+		print(colored(f"\nYour output has been written too {options().out}", "yellow"))
+			
+		stdoutdata = subprocess.getoutput(f"wc -l {options().out}")
+		print(colored(f"Your results have returned {stdoutdata} unique subdomains\n", "yellow"))
+
 
 	elif not options().out:
 		print("\n".join(subset))

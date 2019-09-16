@@ -82,6 +82,8 @@ OPTIONAL ARGUMENTS: \
 -v Verbose mode. \
 -o Choose to send results to an output file. 
 
+The keywords.txt file is a file that is provided, that can be used with multi-search mode.
+
 **subseeker.py parse sub domain keywords** \
 Description: Parse through sublister, certspotter, etc. text outputs for sub domain keywords. \
 Note: If using sublist3r, use sublist3r's option [-o] to send results to outfile. Subseeker.py is designed to parse from a text file. Using standard redirection ">",">>", copies ANSI color codes, which will conflict with parsing. \

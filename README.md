@@ -106,4 +106,5 @@ OPTIONAL ARGUMENTS: \
 # Author:
 Coded by Matthew Greer \
 Twitter: <https://twitter.com/Vail__> \
-Email: DFC302@protonmail.com
+Email: DFC302@protonmail.com \
+**Tested on Linux only**

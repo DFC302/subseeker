@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="250" height="250" src="https://github.com/DFC302/crtpy/blob/master/images/logo.jpg">
+  <img width="250" height="250" src="https://github.com/DFC302/subseeker/blob/master/images/logo.jpg">
 </p>
 
 # Subseeker
@@ -38,7 +38,7 @@ git clone https://github.com/DFC302/subseeker.git \
 chmod 755 subseeker/subseeker.py
 
 # Usage
-![usage](https://github.com/DFC302/crtpy/blob/master/images/usage.png)
+![usage](https://github.com/DFC302/subseeker/blob/master/images/usage.png)
 
     usage: subseeker.py [-h] [-d DOMAIN] [-f FILE] [-o OUT] [-H HEADER] [-v] [-S]
               [-t THREADS]
@@ -95,13 +95,13 @@ OPTIONAL ARGUMENTS: \
 
 # Examples:
 **Single-Search Mode** \
-![single-search mode](https://github.com/DFC302/crtpy/blob/master/images/singlemode.png)
+![single-search mode](https://github.com/DFC302/subseeker/blob/master/images/singlemode.png)
 
 **Multi-Search Mode (Default threads)** \
-![multi-default](https://github.com/DFC302/crtpy/blob/master/images/results2.png)
+![multi-default](https://github.com/DFC302/subseeker/blob/master/images/results2.png)
 
 **Multi-Search Mode (50 threads)** \
-![multi-search mode](https://github.com/DFC302/crtpy/blob/master/images/mult-search.png)
+![multi-search mode](https://github.com/DFC302/subseeker/blob/master/images/mult-search.png)
 
 # Author:
 Coded by Matthew Greer \

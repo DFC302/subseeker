@@ -14,7 +14,7 @@ Crtsh:        <https://crt.sh/> \
 Certspotter:  https://sslmate.com/certspotter/
 Certspotter command: \
 curl -s https://certspotter.com/api/v0/certs\?domain\=[domain] | jq '.[].dns_names[]' | sed 's/\"//g' | sed 's/\*\.//g' | sort -u | grep [domain] \
-**Special thanks to Nahmasec's recon videos**
+**Special thanks to NahamSec's recon videos**
 
 
 # Description:

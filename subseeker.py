@@ -237,7 +237,7 @@ def crtpySingle():
 def searchSubs():
 	if not options().domain:
 		print(colored("\nDomain needed to parse subs against!", "red"))
-		print(colored("Usage: python3 crt.py -d [domain] -f [file to grab subs from] optional: -o [file to send results too.]\n", "red"))
+		print(colored("Usage: ./subseeker.py -S -d [domain] -f [file to grab subs from] optional: -o [file to send results too.]\n", "red"))
 		sys.exit(1)
 
 	if options().domain.startswith("."):

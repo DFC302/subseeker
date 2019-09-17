@@ -65,7 +65,7 @@ OPTIONAL ARGUMENTS: \
 
 **subseeker.py multi-search mode** \
 Description: Search subdomain keywords through crt.sh. \
-Note: keywords are processed like so: *[keyword]*.[domain] \
+Note: keywords are processed like so: \*[keyword]\*.[domain] \
 Note: keywords should be written to file with each keyword on a new line, like so:
 
 dev \

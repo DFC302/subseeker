@@ -8,7 +8,6 @@ import platform
 import concurrent.futures
 import subprocess
 from termcolor import colored
-from datetime import datetime
 
 # User options
 def options():
@@ -208,10 +207,13 @@ def crtpySingle():
 				row = re.findall(regex, row["name_value"])[0]
 				subset.add(row)
 
+		elif not data:
+			print(colored(f"\n\nNo data found for {options().domain}\n", "yellow"))
+
 	# JSON Decode Error
 	except ValueError:
 		# Verbose override to help user understand zero results
-		print(colored(f"JSON value error!", "yellow"))
+		print(colored(f"\n\nJSON value error!\n", "red"))
 		print(colored(f"This could mean no data was found or crt.sh failed to return data.", "yellow"))
 		print(colored(f"Parsing domains with a large number of subdomains can sometimes crash results.", "yellow")) 
 		print(colored(f"Try again for possibly a different result.\n", "yellow"))
@@ -222,16 +224,15 @@ def crtpySingle():
 		print(colored(f"User cancelled search.", "yellow"))
 		sys.exit(0)
 
+	print("\n\n")
+	print(colored("\n".join(subset), "blue"))
+	print("\n")
+
 	if options().out:
 		with open(options().out, "w") as f:
 			f.write("\n".join(subset))
 		print(colored(f"\nYour search results have been written to: {options().out}", "yellow"))
 		grabCount()
-
-	else:
-		print("\n")
-		print(colored("\n".join(subset), "blue"))
-		print("\n")
 
 # Parse keywords mode
 def searchSubs():
@@ -275,9 +276,10 @@ def searchSubs():
 		with open(options().out, "a") as wf:
 			wf.write("\n".join(subset))
 		print(colored(f"\nYour output has been written too {options().out}", "yellow"))
-			
-		stdoutdata = subprocess.getoutput(f"wc -l {options().out}")
-		print(colored(f"Your results have returned {stdoutdata} unique subdomains\n", "yellow"))
+		
+		if platform.system() == "Linux" or platform.system() == "Darwin":
+			stdoutdata = subprocess.getoutput(f"wc -l {options().out}")
+			print(colored(f"Your results have returned {stdoutdata} unique subdomains\n", "yellow"))
 
 
 	elif not options().out:
@@ -285,10 +287,11 @@ def searchSubs():
 
 # Remove duplicates, if any, return unique number from file count
 def grabCount():
-	stdoutdata = subprocess.getoutput(f"cat {options().out} | sort -u | wc -l")
-	print(colored(f"Your results have returned {stdoutdata} unique subdomains\n", "yellow"))
+	if platform.system() == "Linux" or platform.system() == "Darwin":
+		stdoutdata = subprocess.getoutput(f"cat {options().out} | sort -u | wc -l")
+		print(colored(f"Your results have returned {stdoutdata} unique subdomains\n", "yellow"))
 
-	subprocess.run(["sort", "-u", f"{options().out}", "-o", f"{options().out}"])
+		subprocess.run(["sort", "-u", f"{options().out}", "-o", f"{options().out}"])
 
 # Clean the screen of the terminal 
 def cleanScreen():

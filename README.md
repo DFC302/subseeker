@@ -6,17 +6,23 @@
 A sub-domain enumeration tool. \
 Written in python3.
 
-**Special thanks to tools like certspotter, sublist3r, and crt.sh. Without tools like these, subseeker.py would not be what it is.** \
+**Special thanks to tools like certspotter, sublist3r, subfinder, knock, and crt.sh. Without tools like these, subseeker.py would not be what it is.** \
 **Special thanks to NahamSec's recon videos. You can go to his github for the certspotter command and many more knowledgable things**
 
 **You can find these below:** \
 Sublist3r:    <https://github.com/aboul3la/Sublist3r> \
 Crtsh:        <https://crt.sh/> \
-Certspotter:  https://sslmate.com/certspotter/
+Certspotter:  https://sslmate.com/certspotter/ \
+Subfinder:    https://github.com/subfinder/subfinder \
+Knock:        https://github.com/guelfoweb/knock
 
 
 # Description:
-Subseeker is a sub-domain enumeration tool. The tool simply iterates the recon process for finding subdomains from a target domain. Using tools like certspotter and sublister, subseeker can parse the output of these files for subdomain keywords. From there, those subdomain keywords can be used to individually parse https://crt.sh for subdomains. Using concurrency, (as shown in the examples) this can iterate a huge number of subdomain keywords in minutes, returning thousands of results. The results are then parsed through a python set, so duplicates are removed. Subseeker can also parse crt.sh individually, as if one were using the actual website.
+Subseeker is a sub-domain enumeration tool. The tool simply iterates the recon process for finding subdomains from a target domain. Using tools like certspotter and sublister, subseeker can parse the output of these files for subdomain keywords. From there, those subdomain keywords can be used to individually parse https://crt.sh for subdomains. Using concurrency, (as shown in the examples) this can iterate a huge number of subdomain keywords in minutes, returning thousands of results. The results are then parsed through a python set, so duplicates are removed.
+
+Subseeker can also parse crt.sh individually, as if one were using the actual website.
+
+However, subseeker flourishes with the help of other tools. Using tools like certspotter, sublist3r, subfinder, and knock (too name a few), running these tools first into output files and then combining them all into one file, creates a file full of ton of subdomains. Using the subseeker (option -S), you can parse each subdomain into a file of sub keywords. From there, you can use subseeker to parse crt.sh for each of these sub keywords, using wildcards to return all variants. Doing this manually is time consuiming and requires a ton of effort and time. Subseeker can do this for you in minutes and in the end removes all duplicate URLs, calling a count on the output file returning your number of unique subdomains.
 
 # Requirements
 Python 3.x

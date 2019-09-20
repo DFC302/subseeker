@@ -7,12 +7,13 @@ A sub-domain enumeration tool. \
 Written in python3.
 
 **Special thanks to tools like certspotter, sublist3r, subfinder, knock, and crt.sh. Without tools like these, subseeker.py would not be what it is.** \
-**Special thanks to NahamSec's recon videos. You can go to his github for the certspotter command and many more knowledgable things**
+**Special thanks to NahamSec's recon videos. This tool was built around his recon videos. Check him out on twitch, youtube, github, etc.**
 
 **You can find these below:** \
 Sublist3r:    <https://github.com/aboul3la/Sublist3r> \
 Crtsh:        <https://crt.sh/> \
 Certspotter:  https://sslmate.com/certspotter/ \
+Certspotter command: "curl -s https://certspotter.com/api/v0/certs\?domain\=$1 | jq '.[].dns_names[]' | sed 's/\"//g' | sed 's/\*\.//g' | sort -u | grep $1" (put in bashrc or bash_aliases) \
 Subfinder:    https://github.com/subfinder/subfinder \
 Knock:        https://github.com/guelfoweb/knock
 

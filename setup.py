@@ -18,7 +18,6 @@ setuptools.setup(
             "json",
             "argparse",
             "termcolor",
-            "concurrent.futures",
         ],
 	classifiers=[
 		"Programming Language :: Python :: 3",

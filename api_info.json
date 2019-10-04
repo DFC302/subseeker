@@ -1,0 +1,21 @@
+{
+	"certspotter":
+		{
+			"key":
+				""
+		},
+	
+	"certdb":
+		{
+			"key":
+				""
+		},
+	
+	"censys":
+		{
+			"uid":
+				"",
+			"token":
+				""
+		}
+}

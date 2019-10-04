@@ -19,7 +19,6 @@ setuptools.setup(
             "argparse",
             "termcolor",
             "concurrent.futures",
-            "re",
         ],
 	classifiers=[
 		"Programming Language :: Python :: 3",

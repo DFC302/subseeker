@@ -2,6 +2,8 @@
   <img width="250" height="250" src="https://github.com/DFC302/subseeker/blob/master/images/logo.jpg">
 </p>
 
+[![Build Status](https://travis-ci.org/DFC302/subseeker.svg?branch=master)](https://travis-ci.org/DFC302/subseeker)
+
 # Subseeker
 A sub-domain enumeration tool. \
 Written in python3.

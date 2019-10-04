@@ -40,7 +40,7 @@ termcolor
 
 # Installation 
 git clone https://github.com/DFC302/subseeker.git \
-chmod 755 subseeker/subseeker.py
+chmod 755 subseeker/main.py
 
 # Usage
 ![usage](https://github.com/DFC302/subseeker/blob/master/images/usage.png)

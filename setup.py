@@ -12,7 +12,7 @@ setuptools.setup(
 	long_description=long_description,
 	long_description_content_type="text/markdown",
 	url="https://github.com/DFC302/subseeker",
-	packages=setuptools.find_packages('subseeker'),
+	packages=setuptools.find_packages('main'),
 	classifiers=[
 		"Programming Language :: Python :: 3",
 		"License :: OSI Approved :: MIT License",

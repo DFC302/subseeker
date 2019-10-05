@@ -95,7 +95,7 @@ OPTIONAL ARGUMENTS: \
 
 **subseeker.py keyword search** \
 Description: Create a list of sub domain keywords on the fly right along with the other CLI options to parse crt.sh with.\
-EX: ./subseeker.py -d example.com -k test, dev, product
+EX: ./subseeker.py -d example.com -k test dev product (no commas, unless you want to search with commas)
 
 OPTIONAL ARGUMENTS: \
 -H Choose a different header, default is Firefox. \

@@ -4,6 +4,8 @@
 
 [![Build Status](https://travis-ci.org/DFC302/subseeker.svg?branch=master)](https://travis-ci.org/DFC302/subseeker)
 
+# Version 2.0
+
 # Subseeker
 A sub-domain enumeration tool. \
 Written in python3.
@@ -14,18 +16,19 @@ Written in python3.
 **You can find these below:** \
 Sublist3r:    <https://github.com/aboul3la/Sublist3r> \
 Crtsh:        <https://crt.sh/> \
+Certdb:       https://certdb.com/ \
 Certspotter:  https://sslmate.com/certspotter/ \
-Certspotter command: "curl -s https://certspotter.com/api/v0/certs\?domain\=$1 | jq '.[].dns_names[]' | sed 's/\"//g' | sed 's/\*\.//g' | sort -u | grep $1" (put in bashrc or bash_aliases) \
 Subfinder:    https://github.com/subfinder/subfinder \
 Knock:        https://github.com/guelfoweb/knock
 
 
 # Description:
-Subseeker is a sub-domain enumeration tool. The tool simply iterates the recon process for finding subdomains from a target domain. Using tools like certspotter and sublister, subseeker can parse the output of these files for subdomain keywords. From there, those subdomain keywords can be used to individually parse https://crt.sh for subdomains. Using concurrency, (as shown in the examples) this can iterate a huge number of subdomain keywords in minutes, returning thousands of results. The results are then parsed through a python set, so duplicates are removed.
+Subseeker is a sub-domain enumeration tool. The tool simply iterates the recon process for finding subdomains from a target domain. Using tools like sublister, knock, etc., subseeker can parse the output of these files for subdomain keywords. From there, those subdomain keywords can be used to individually parse crt.sh for subdomains. Using concurrency, (as shown in the examples) this can iterate a huge number of subdomain keywords in minutes, returning thousands of results. The results are then parsed through a python set, so duplicates are removed.
 
-Subseeker can also parse crt.sh individually, as if one were using the actual website.
+Subseeker can also parse crt.sh, certdb, censys, and certspotter individually, as if one were using the actual websites.
 
-However, subseeker flourishes with the help of other tools. Using tools like certspotter, sublist3r, subfinder, and knock (too name a few), running these tools first into output files and then combining them all into one file, creates a file full of ton of subdomains. Using the subseeker (option -S), you can parse each subdomain into a file of sub keywords. From there, you can use subseeker to parse crt.sh for each of these sub keywords, using wildcards to return all variants. Doing this manually is time consuiming and requires a ton of effort and time. Subseeker can do this for you in minutes and in the end removes all duplicate URLs, calling a count on the output file returning your number of unique subdomains.
+However, subseeker flourishes with the help of other tools. Using tools like certspotter, sublist3r, subfinder, and knock (too name a few), running these tools first into output files and then combining them all into one file, creates a file full of
+subdomains. Using the subseeker (option -S), you can parse each subdomain into a file of sub keywords. From there, you can use subseeker to parse crt.sh for each of these sub keywords, using wildcards to return all variants. You can also now use the keyword option (-k) to create a keyword list on the fly, and use that to parse crt.sh. Doing either of these manually is time consuiming and requires a ton of effort and time. Subseeker however, can do this for you in minutes.
 
 # Requirements
 Python 3.x
@@ -38,41 +41,55 @@ requests \
 argparse \
 concurrent.futures \
 subprocess \
-termcolor
+termcolor \
+json
 
-# Installation 
+# Installation
+pip install subseeker
+
+# Manaul Installation
 git clone https://github.com/DFC302/subseeker.git \
 chmod 755 subseeker/main.py
 
 # Usage
 ![usage](https://github.com/DFC302/subseeker/blob/master/images/usage.png)
 
-    usage: subseeker.py [-h] [-d DOMAIN] [-f FILE] [-o OUT] [-H HEADER] [-v] [-S]
-              [-t THREADS]
+usage: subseeker [-h] [-d DOMAIN] [-S SUBWORDSEARCH]
+                 [-k KEYWORDS [KEYWORDS ...]] [-C] [-f FILE] [-o OUT]
+                 [-t THREADS] [-u USERAGENT] [-a] [-v] [-V]
 
-    optional arguments:
-      -h, --help            show this help message and exit
-      -d DOMAIN, --domain DOMAIN
-                            Specify domain to search.
-      -f FILE, --file FILE  Specify in file.
-      -o OUT, --out OUT     Specify file to write results too.
-      -H HEADER, --header HEADER
-                            Specify header to use.
-      -v, --verbose         Turn on verbose mode.
-      -S, --searchsubs      Use regex to grab subdomains from domain.
-      -t THREADS, --threads THREADS
-                            Number of threads.
+optional arguments:
+  -h, --help            show this help message and exit
+  -d DOMAIN, --domain DOMAIN
+                        Specify domain to search.
+  -S SUBWORDSEARCH, --subwordsearch SUBWORDSEARCH
+                        Parse crt.sh using sub domain keywords.
+  -k KEYWORDS [KEYWORDS ...], --keywords KEYWORDS [KEYWORDS ...]
+                        Add a list of keywords.
+  -C, --createsubs      Create a list of sub domain keywords from a file
+                        containing subdomains.
+  -f FILE, --file FILE  Specify a file containing keywords to parse crt.sh OR
+                        to create sub keywords from.
+  -o OUT, --out OUT     Specify a file to write results too.
+  -t THREADS, --threads THREADS
+                        Specify number of threads to be used when performing
+                        keyword search.
+  -u USERAGENT, --useragent USERAGENT
+                        Specify a user-agent to use. Default is a firefox UA.
+  -a, --api             Turn on api.
+  -v, --verbose         Turn on verbose mode.
+  -V, --version         Display version information
 
-
-**subseeker.py single-search mode** \
-Description: Search any variation of wildcard through crt.sh. \
+**subseeker.py default search mode** \
+Description: Search any variation of wildcard through crt.sh, certspotter, certdb, and censys.io \
 usage: ./subseeker.py -d [search format][domain] \
 EX: ./subseeker.py -d *.example.com 
 
 OPTIONAL ARGUMENTS: \
 -o Choose to send results to an output file. 
+-a Use an API to search certspotter, certdb, and censys.io (needed for censys)
 
-**subseeker.py multi-search mode** \
+**subseeker.py subwordsearch mode** \
 Description: Search subdomain keywords through crt.sh. \
 Note: keywords are processed like so: \*[keyword]\*.[domain] \
 Note: keywords should be written to file with each keyword on a new line, like so:
@@ -93,7 +110,7 @@ OPTIONAL ARGUMENTS: \
 
 The keywords.txt file is a file that is provided, that can be used with multi-search mode.
 
-**subseeker.py parse sub domain keywords** \
+**subseeker.py parse createsubs mode** \
 Description: Parse through sublister, certspotter, etc. text outputs for sub domain keywords. \
 Note: If using sublist3r, use sublist3r's option [-o] to send results to outfile. Subseeker.py is designed to parse from a text file. Using standard redirection ">",">>", copies ANSI color codes, which will conflict with parsing. \
 subseeker.py -S -d [domain] -f [file contaning output from certspotter, sublister, etc. results] \
@@ -101,6 +118,16 @@ EX: ./subseeker.py -S -d example.com -f certspotter_results.txt
 
 OPTIONAL ARGUMENTS: \
 -o Choose to send results to an output file.
+
+**subseeker.py keyword search** \
+Description: Create a list of sub domain keywords on the fly right along with the other CLI options to parse crt.sh with.\
+EX: ./subseeker.py -d example.com -k test, dev, product
+
+OPTIONAL ARGUMENTS: \
+-H Choose a different header, default is Firefox. \
+-t Choose number of threads. \
+-v Verbose mode. \
+-o Choose to send results to an output file. 
 
 # Examples:
 **Single-Search Mode** \
@@ -116,4 +143,5 @@ OPTIONAL ARGUMENTS: \
 Coded by Matthew Greer \
 Twitter: <https://twitter.com/Vail__> \
 Email: DFC302@protonmail.com \
-**Tested on Linux only**
+**Tested mainly on Linux**
+**Partially tested on Windows**

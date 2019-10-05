@@ -52,33 +52,6 @@ git clone https://github.com/DFC302/subseeker.git \
 chmod 755 subseeker/main.py
 
 # Usage
-![usage](https://github.com/DFC302/subseeker/blob/master/images/usage.png)
-
-usage: subseeker [-h] [-d DOMAIN] [-S SUBWORDSEARCH]
-                 [-k KEYWORDS [KEYWORDS ...]] [-C] [-f FILE] [-o OUT]
-                 [-t THREADS] [-u USERAGENT] [-a] [-v] [-V]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -d DOMAIN, --domain DOMAIN
-                        Specify domain to search.
-  -S SUBWORDSEARCH, --subwordsearch SUBWORDSEARCH
-                        Parse crt.sh using sub domain keywords.
-  -k KEYWORDS [KEYWORDS ...], --keywords KEYWORDS [KEYWORDS ...]
-                        Add a list of keywords.
-  -C, --createsubs      Create a list of sub domain keywords from a file
-                        containing subdomains.
-  -f FILE, --file FILE  Specify a file containing keywords to parse crt.sh OR
-                        to create sub keywords from.
-  -o OUT, --out OUT     Specify a file to write results too.
-  -t THREADS, --threads THREADS
-                        Specify number of threads to be used when performing
-                        keyword search.
-  -u USERAGENT, --useragent USERAGENT
-                        Specify a user-agent to use. Default is a firefox UA.
-  -a, --api             Turn on api.
-  -v, --verbose         Turn on verbose mode.
-  -V, --version         Display version information
 
 **subseeker.py default search mode** \
 Description: Search any variation of wildcard through crt.sh, certspotter, certdb, and censys.io \

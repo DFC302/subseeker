@@ -70,7 +70,8 @@ test \
 ops \
 mail
     
-usage: ./subseeker.py -d [domain] -f [file containing subdomain keywords] \
+usage: ./subseeker -d [domain] -f [file containing subdomain keywords] \
+usage: ./subseeker -d [domain] -k [keywords (separated by spaces)]
 EX: ./subseeker.py -d example.com -f domain_keywords.txt 
 
 OPTIONAL ARGUMENTS: \
@@ -78,6 +79,7 @@ OPTIONAL ARGUMENTS: \
 -t Choose number of threads. \
 -v Verbose mode. \
 -o Choose to send results to an output file. \
+-k Choose keywords to parse domains with. \
 -a Enable search with API credentials.
 
 The keywords.txt file is a file that is provided, that can be used with multi-search mode.
@@ -90,17 +92,6 @@ EX: ./subseeker.py -S -d example.com -f certspotter_results.txt
 
 OPTIONAL ARGUMENTS: \
 -o Choose to send results to an output file.
-
-**subseeker.py keyword search** \
-Description: Create a list of sub domain keywords on the fly right along with the other CLI options to parse crt.sh with.\
-EX: ./subseeker.py -d example.com -k test dev product (no commas, unless you want to search with commas)
-
-OPTIONAL ARGUMENTS: \
--H Choose a different header, default is Firefox. \
--t Choose number of threads. \
--v Verbose mode. \
--o Choose to send results to an output file. \
--a Enable search with API credentials.
 
 **Configure API credentials in config.json file.**
 

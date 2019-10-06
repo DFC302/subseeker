@@ -45,9 +45,6 @@ termcolor \
 json
 
 # Installation
-pip install subseeker
-
-# Manaul Installation
 git clone https://github.com/DFC302/subseeker.git \
 chmod 755 subseeker/subseeker
 

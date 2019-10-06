@@ -104,16 +104,6 @@ OPTIONAL ARGUMENTS: \
 
 **Configure API credentials in config.json file.**
 
-# Examples:
-**Single-Search Mode** \
-![single-search mode](https://github.com/DFC302/subseeker/blob/master/images/singlemode.png)
-
-**Multi-Search Mode (Default threads)** \
-![multi-default](https://github.com/DFC302/subseeker/blob/master/images/results2.png)
-
-**Multi-Search Mode (50 threads)** \
-![multi-search mode](https://github.com/DFC302/subseeker/blob/master/images/mult-search.png)
-
 # Author:
 Coded by Matthew Greer \
 Twitter: <https://twitter.com/Vail__> \

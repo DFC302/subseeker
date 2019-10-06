@@ -23,7 +23,7 @@ Knock:        https://github.com/guelfoweb/knock
 
 
 # Description:
-Subseeker is a sub-domain enumeration tool. The tool simply iterates the recon process for finding subdomains from a target domain. Using tools like sublister, knock, etc., subseeker can parse the output of these files for subdomain keywords. From there, those subdomain keywords can be used to individually parse crt.sh for subdomains. Using concurrency, (as shown in the examples) this can iterate a huge number of subdomain keywords in minutes, returning thousands of results. The results are then parsed through a python set, so duplicates are removed.
+Subseeker is a sub-domain enumeration tool. The tool simply iterates the recon process for finding subdomains from a target domain. Using tools like sublister, knock, etc., subseeker can parse the output of these files for subdomain keywords. From there, those subdomain keywords can be used to individually parse crt.sh for subdomains. Using concurrency, (as shown in the examples) this can iterate a huge number of subdomain keywords in minutes, returning thousands of results.
 
 Subseeker can also parse crt.sh, certdb, censys, and certspotter individually, as if one were using the actual websites.
 

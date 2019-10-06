@@ -49,7 +49,7 @@ pip install subseeker
 
 # Manaul Installation
 git clone https://github.com/DFC302/subseeker.git \
-chmod 755 subseeker/main.py
+chmod 755 subseeker/subseeker
 
 # Usage
 ![usage](https://github.com/DFC302/subseeker/blob/master/images/usage.png)
@@ -80,7 +80,8 @@ OPTIONAL ARGUMENTS: \
 -H Choose a different header, default is Firefox. \
 -t Choose number of threads. \
 -v Verbose mode. \
--o Choose to send results to an output file. 
+-o Choose to send results to an output file. \
+-a Enable search with API credentials.
 
 The keywords.txt file is a file that is provided, that can be used with multi-search mode.
 
@@ -101,7 +102,10 @@ OPTIONAL ARGUMENTS: \
 -H Choose a different header, default is Firefox. \
 -t Choose number of threads. \
 -v Verbose mode. \
--o Choose to send results to an output file. 
+-o Choose to send results to an output file. \
+-a Enable search with API credentials.
+
+**Configure API credentials in config.json file.**
 
 # Examples:
 **Single-Search Mode** \

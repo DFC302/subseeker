@@ -1,0 +1,19 @@
+{
+	"API_INFO":[
+		{
+			"certspotter": "01",
+			"key": ""
+		},
+
+		{
+			"certdb": "02",
+			"key": ""
+		},
+
+		{
+			"censys": "03",
+			"id": "",
+			"secret": ""
+		}
+	]
+}

@@ -71,7 +71,7 @@ ops \
 mail
     
 usage: ./subseeker -d [domain] -f [file containing subdomain keywords] \
-usage: ./subseeker -d [domain] -k [keywords (separated by spaces)]
+usage: ./subseeker -d [domain] -k [keywords (separated by spaces)] \
 EX: ./subseeker.py -d example.com -f domain_keywords.txt 
 
 OPTIONAL ARGUMENTS: \

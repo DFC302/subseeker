@@ -149,7 +149,9 @@ From there this list can be used to generate even more subdomains from crt.sh. S
 \*dev\*.example.com \
 \*products\*.example.com
 
-This is why using other subdomain tools and parsing the results into output files can then be used to generate a huge list of keywords to parse crt.sh with.  
+This is why using other subdomain tools and parsing the results into output files can then be used to generate a huge list of keywords to parse crt.sh with.
+
+![example](https://github.com/DFC302/subseeker/blob/master/images/example.png)
 
 # Author:
 Coded by Matthew Greer \

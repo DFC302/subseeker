@@ -53,12 +53,43 @@ chmod 755 subseeker/subseeker
 
 **subseeker.py default search mode** \
 Description: Search any variation of wildcard through crt.sh, certspotter, certdb, and censys.io \
-usage: ./subseeker.py -d [search format][domain] \
-EX: ./subseeker.py -d *.example.com 
+usage: python3 subseeker -d [search format][domain] \
+EX: python3 subseeker -d *.example.com 
 
 OPTIONAL ARGUMENTS: \
 -o Choose to send results to an output file. 
 -a Use an API to search certspotter, certdb, and censys.io (needed for censys)
+-p Specify page number for certdb and censys
+-v Verbose mode
+
+**subseeker certspotter search mode** \
+Description: Search for subdomains using just certspotter. \
+usage: python3 subseeker --certspotter -d [domain] \
+EX: python3 subseeker --certspotter -d example.com
+
+OPTIONAL ARGUMENTS: \
+-o Choose to send results to an output file. 
+-v Verbose mode
+
+**subseeker certdb search mode** \
+Description: Search for subdomains using just certdb. \
+usage: python3 subseeker --certdb -d [domain] \
+EX: python3 subseeker --certdb -d example.com
+
+OPTIONAL ARGUMENTS: \
+-o Choose to send results to an output file. \
+-p Specify page number. \
+-v Verbose mode
+
+**subseeker censys search mode** \
+Description: Search for subdomains using just censys. \
+usage: python3 subseeker --censys -d [domain] \
+EX: python3 subseeker --censys -d example.com
+
+OPTIONAL ARGUMENTS: \
+-o Choose to send results to an output file. \ 
+-p Specify page number. \
+-v Verbose mode.
 
 **subseeker.py subwordsearch mode** \
 Description: Search subdomain keywords through crt.sh. \
@@ -70,9 +101,9 @@ test \
 ops \
 mail
     
-usage: ./subseeker -d [domain] -f [file containing subdomain keywords] \
-usage: ./subseeker -d [domain] -k [keywords (separated by spaces)] \
-EX: ./subseeker.py -d example.com -f domain_keywords.txt 
+usage: python3 subseeker -d [domain] -f [file containing subdomain keywords] \
+usage: python3 subseeker -d [domain] -k [keywords (separated by spaces)] \
+EX: python3 subseeker -d example.com -f domain_keywords.txt 
 
 OPTIONAL ARGUMENTS: \
 -H Choose a different header, default is Firefox. \
@@ -80,15 +111,16 @@ OPTIONAL ARGUMENTS: \
 -v Verbose mode. \
 -o Choose to send results to an output file. \
 -k Choose keywords to parse domains with. \
--a Enable search with API credentials.
+-a Enable search with API credentials. \
+-p Specify page mode.
 
 The keywords.txt file is a file that is provided, that can be used with multi-search mode.
 
 **subseeker.py parse createsubs mode** \
 Description: Parse through sublister, certspotter, etc. text outputs for sub domain keywords. \
-Note: If using sublist3r, use sublist3r's option [-o] to send results to outfile. Subseeker.py is designed to parse from a text file. Using standard redirection ">",">>", copies ANSI color codes, which will conflict with parsing. \
-subseeker.py -S -d [domain] -f [file contaning output from certspotter, sublister, etc. results] \
-EX: ./subseeker.py -S -d example.com -f certspotter_results.txt
+Note: If using sublist3r, use sublist3r's option [-o] to send results to outfile. (Subseeker is designed to parse from a text file. Using standard redirection ">",">>", copies ANSI color codes, which will conflict with parsing.) \
+usage: python3 subseeker -C -d [domain] -f [file contaning output from certspotter, sublister, etc. results] \
+EX: python3 subseeker -C -d example.com -f certspotter_results.txt
 
 OPTIONAL ARGUMENTS: \
 -o Choose to send results to an output file.

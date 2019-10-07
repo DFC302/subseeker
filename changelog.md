@@ -3,7 +3,20 @@
 
 All notable changes to this project will be kept and updated here.
 
-**(OCT 5 2019)**
+**(Oct 7, 2019)**
+# Bug fixes
+* Corrected issue with JSON return error not printing on screen correctly.
+
+# Changes
+* Changed JSON error response for crtsh
+* Added error response for censys, if API credentials are not configured.
+
+# Features
+* Added the ability to use just certspotter, censys, or certdb from searchmodes.py
+* Added page option to specify page number for certdb and censys.
+* Updated README.md
+
+**(Oct 5, 2019)**
 
 # Bug Fixes
 * Corrected an issue with useragents not properly returning the correct value.

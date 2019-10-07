@@ -97,7 +97,7 @@ def options():
 	# Specify page number for certdb and/or censys
 	parser.add_argument(
 		"-p", "--page",
-		help="Used with certdb and/or censys searchmodes. Specify page number to dispaly.",
+		help="Used with certdb and/or censys searchmodes. Specify page number to display.",
 		action="store"
 	)
 

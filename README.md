@@ -27,7 +27,7 @@ Subseeker is a sub-domain enumeration tool. The tool simply iterates the recon p
 
 Subseeker can also parse crt.sh, certdb, censys, and certspotter individually, as if one were using the actual websites.
 
-However, subseeker flourishes with the help of other tools. Using tools like certspotter, sublist3r, subfinder, and knock (too name a few), running these tools first into output files and then combining them all into one file, creates a file full of
+However, subseeker flourishes with the help of other tools (see example below). Using tools like certspotter, sublist3r, subfinder, and knock (too name a few), running these tools first into output files and then combining them all into one file, creates a file full of
 subdomains. Using the subseeker (option -S), you can parse each subdomain into a file of sub keywords. From there, you can use subseeker to parse crt.sh for each of these sub keywords, using wildcards to return all variants. You can also now use the keyword option (-k) to create a keyword list on the fly, and use that to parse crt.sh. Doing either of these manually is time consuiming and requires a ton of effort and time. Subseeker however, can do this for you in minutes.
 
 # Requirements
@@ -126,6 +126,28 @@ OPTIONAL ARGUMENTS: \
 -o Choose to send results to an output file.
 
 **Configure API credentials in config.json file.**
+
+# Example usage:
+**Here is an example usage on how you can fully take advantage of subseeker.**
+
+Yes, subseeker can locate subdomains on its own. However, it was built around the idea of using sub domain keywords to parse crtsh. You can aquire these sub domain keywords by using subeeker to parse crtsh, censys, certspotter, and certdb into an output file or files and/or by using other subdomain tools. From there, using the createsubs option (-C), it will parse the second layer of each domain to create keywords.
+
+For example, say I generate subdomains like so: \
+test.example.com \
+test.dev.example.com \
+products.example.com 
+
+Using the -C option will then create a list of keywords like so: \
+test \
+dev \
+products
+
+From there this list can be used to generate even more subdomains from crt.sh. Subseeker will automatically search with the syntax like so: \
+\*test\*.example.com \
+\*dev\*.example.com \
+\*products\*.example.com
+
+This is why using other subdomain tools and parsing the results into output files can then be used to generate a huge list of keywords to parse crt.sh with.  
 
 # Author:
 Coded by Matthew Greer \

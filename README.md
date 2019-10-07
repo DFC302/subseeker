@@ -100,7 +100,9 @@ dev \
 test \
 ops \
 mail
-    
+
+**Special Note:** \
+**Domain must be without "." or "\*" notation. For example: example.com NOT .example.com or \*.example.com**\
 usage: python3 subseeker -d [domain] -f [file containing subdomain keywords] \
 usage: python3 subseeker -d [domain] -k [keywords (separated by spaces)] \
 EX: python3 subseeker -d example.com -f domain_keywords.txt 

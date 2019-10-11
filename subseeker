@@ -49,6 +49,12 @@ def main():
 		elif resources.options().censys:
 			searchmodes.censys()
 
+		elif resources.options().virustotal:
+			searchmodes.virustotal()
+
+		elif resources.options().threatcrowd:
+			searchmodes.threatcrowd()
+
 		# default search, searches all modes	
 		else:
 			resources.title()
@@ -56,6 +62,8 @@ def main():
 			searchmodes.certspotter()
 			searchmodes.certdb()
 			searchmodes.censys()
+			searchmodes.virustotal()
+			searchmodes.threatcrowd()
 
 if __name__ == "__main__":
 	main()

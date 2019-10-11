@@ -14,6 +14,11 @@
 			"censys": "03",
 			"id": "",
 			"secret": ""
+		},
+
+		{
+			"virustotal": "04",
+			"key": ""
 		}
 	]
 }

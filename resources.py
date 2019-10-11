@@ -94,6 +94,20 @@ def options():
 		action="store_true",
 	)
 
+	# Call just virustotal
+	parser.add_argument(
+		"--virustotal",
+		help="Seach just using virustotal.",
+		action="store_true",
+	)
+
+	# Call just threatcrowd
+	parser.add_argument(
+		"--threatcrowd",
+		help="Search just using threatcrowd.",
+		action="store_true",
+	)
+
 	# Specify page number for certdb and/or censys
 	parser.add_argument(
 		"-p", "--page",

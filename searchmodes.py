@@ -293,6 +293,137 @@ def censys():
 		print(colored(f"User cancelled search.", "yellow"))
 		sys.exit(0)
 
+def virustotal():
+	if options().verbose:
+		print(colored(f"\n\tVIRUSTOTAL", "yellow"))
+		print(colored(f"\t==========\n", "yellow"))
+
+	if options().domain.startswith("*."):
+		domain = options().domain[2:]
+
+	elif options().domain.startswith("*"):
+		domain = options().domain[1:]
+
+	else:
+		domain = options().domain
+
+	try:
+		if options().api:
+			with open("config.json", "r") as f:
+				jfile = json.load(f)
+				key = jfile["API_INFO"][3]["key"]
+				#print(key)
+
+
+			api_url = "https://www.virustotal.com/vtapi/v2/domain/report"
+			params = {"apikey":f"{key}", "domain":f"{domain}"}
+
+			response = requests.get(api_url, params=params)
+
+			data = response.json()
+
+			if data:
+				subdomains = "\n".join(data["subdomains"])
+				print(colored(subdomains, "blue"))
+
+				if options().out:
+					with open(options().out, "a") as f:
+						f.write(subdomains + "\n")
+
+			elif not data:
+				print(colored(f"\nNo data found for {options().domain}", "yellow"))
+		
+		elif not options().api:
+			print(colored("VirusTotal needs API credentials to be parsed.", "yellow"))
+			print(colored("API cconfigurations can be configured in config.json", "yellow"))
+
+	except KeyError:
+		if options().verbose:
+			print(colored(f"No data found for {domain}\n", "yellow"))
+			pass
+		else:
+			pass
+
+	except IndexError:
+		if options().verbose:
+			print(colored(f"Index error", "yellow"))
+			pass
+		else:
+			pass
+
+	except KeyError:
+		if options().verbose:
+			print(colored(f"Key Error!", "yellow"))
+			pass
+		else:
+			pass
+
+	# User cancels program
+	except KeyboardInterrupt:
+		print(colored(f"User cancelled search.", "yellow"))
+		sys.exit(0)
+
+def threatcrowd():
+	if options().verbose:
+		print(colored(f"\n\tTHREATCROWD", "yellow"))
+		print(colored(f"\t===========\n", "yellow"))
+
+	if options().domain.startswith("*."):
+		domain = options().domain[2:]
+
+	elif options().domain.startswith("*"):
+		domain = options().domain[1:]
+
+	else:
+		domain = options().domain
+
+	try:
+		api_url = "http://www.threatcrowd.org/searchApi/v2/domain/report/"
+		params = {"domain":f"{domain}"}
+
+		response = requests.get(api_url, params=params)
+
+		data = json.loads(response.text)
+		data = data["subdomains"]
+
+		if data:
+			for row in data:
+				print(colored(row, "blue"))
+
+				if options().out:
+					with open(options().out, "a") as f:
+						f.write(row + "\n")
+
+		elif not data:
+			print(colored(f"\nNo data found for {options().domain}","yellow"))
+
+	except KeyError:
+		if options().verbose:
+			print(colored(f"No data found for {domain}\n", "yellow"))
+			pass
+		else:
+			pass
+
+	except IndexError:
+		if options().verbose:
+			print(colored(f"Index error", "yellow"))
+			pass
+		else:
+			pass
+
+	except KeyError:
+		if options().verbose:
+			print(colored(f"Key Error!", "yellow"))
+			pass
+		else:
+			pass
+
+	# User cancels program
+	except KeyboardInterrupt:
+		print(colored(f"User cancelled search.", "yellow"))
+		sys.exit(0)
+
+
 # sub keyord search mode
 # Multi-search mode
 # Open file to read sub keywords, start threads

@@ -2,7 +2,8 @@
   <img width="250" height="250" src="https://github.com/DFC302/subseeker/blob/master/images/logo.jpg">
 </p>
 
-[![Build Status](https://travis-ci.org/DFC302/subseeker.svg?branch=master)](https://travis-ci.org/DFC302/subseeker)
+[![Build Status](https://travis-ci.org/DFC302/subseeker.svg?branch=master)](https://travis-ci.org/DFC302/subseeker) \
+[![Follow on Twitter](https://img.shields.io/twitter/follow/Vail__.svg?logo=twitter)](https://twitter.com/Vail__)
 
 # Version 2.0
 
@@ -10,8 +11,7 @@
 A sub-domain enumeration tool. \
 Written in python3.
 
-**Special thanks to tools like certspotter, sublist3r, subfinder, knock, and crt.sh. Without tools like these, subseeker.py would not be what it is.** \
-**Special thanks to NahamSec's recon videos. This tool was built around his recon videos. Check him out on twitch, youtube, github, etc.**
+**Special thanks to tools like certspotter, sublist3r, subfinder, knock, and crt.sh. Without tools like these, subseeker.py would not be what it is.**
 
 **You can find these below:** \
 Sublist3r:    <https://github.com/aboul3la/Sublist3r> \
@@ -49,7 +49,39 @@ git clone https://github.com/DFC302/subseeker.git \
 chmod 755 subseeker/subseeker
 
 # Usage
-![usage](https://github.com/DFC302/subseeker/blob/master/images/usage.png)
+```
+usage: subseeker [-h] [-d DOMAIN] [-k KEYWORDS [KEYWORDS ...]] [-C] [-f FILE]
+                 [-o OUT] [-t THREADS] [-u USERAGENT] [-a] [--certspotter]
+                 [--certdb] [--censys] [--virustotal] [--threatcrowd]
+                 [-p PAGE] [-v] [-V]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -d DOMAIN, --domain DOMAIN
+                        Specify domain to search.
+  -k KEYWORDS [KEYWORDS ...], --keywords KEYWORDS [KEYWORDS ...]
+                        Add a list of keywords.
+  -C, --createsubs      Create a list of sub domain keywords from a file
+                        containing subdomains.
+  -f FILE, --file FILE  Specify a file containing keywords to parse crt.sh OR
+                        to create sub keywords from.
+  -o OUT, --out OUT     Specify a file to write results too.
+  -t THREADS, --threads THREADS
+                        Specify number of threads to be used when performing
+                        keyword search.
+  -u USERAGENT, --useragent USERAGENT
+                        Specify a user-agent to use. Default is a firefox UA.
+  -a, --api             Turn on api.
+  --certspotter         Search just using certspotter.
+  --certdb              Search just using certdb.
+  --censys              Search just using censys.
+  --virustotal          Seach just using virustotal.
+  --threatcrowd         Search just using threatcrowd.
+  -p PAGE, --page PAGE  Used with certdb and/or censys searchmodes. Specify
+                        page number to display.
+  -v, --verbose         Turn on verbose mode.
+  -V, --version         Display version information
+```
 
 **subseeker.py default search mode** \
 Description: Search any variation of wildcard through crt.sh, certspotter, certdb, and censys.io \
@@ -151,7 +183,15 @@ From there this list can be used to generate even more subdomains from crt.sh. S
 
 This is why using other subdomain tools and parsing the results into output files can then be used to generate a huge list of keywords to parse crt.sh with.
 
-![example](https://github.com/DFC302/subseeker/blob/master/images/example.png)
+| TOOL | TIME | NUMBER OF KEYWORDS USED | SUBDOMAINS FOUND | THREAD COUNT |
+| --- | --- | --- | --- | --- |
+| subseeker | 8m9.243s | 1348 | 56793 | 10 (Default)
+
+**Using Concurrency**
+
+| TOOL | TIME | NUMBER OF KEYWORDS USED | SUBDOMAINS FOUND | THREAD COUNT |
+| --- | --- | --- | --- | --- |
+| subseeker | 4m49.491s | 1348 | 57335 | 200 (Max tested) |
 
 # Author:
 Coded by Matthew Greer \

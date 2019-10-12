@@ -1,9 +1,25 @@
 # ChangeLog
-**Version 2.0**
 
 All notable changes to this project will be kept and updated here.
 
+**Version 2.1**
+
+**(Oct 10, 2019)**
+
+# Changes
+* Updated config.json to allow Virustotal API
+
+# Features
+* Added Virustotal
+* Added ThreatCrowd
+
+# Future features
+* Working on implementing google
+
+**Version 2.0**
+
 **(Oct 7, 2019)**
+
 # Bug fixes
 * Corrected issue with JSON return error not printing on screen correctly.
 

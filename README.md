@@ -3,9 +3,8 @@
 </p>
 
 [![Build Status](https://travis-ci.org/DFC302/subseeker.svg?branch=master)](https://travis-ci.org/DFC302/subseeker) \
+![version](https://img.shields.io/badge/version-2.0.1-dark_green) \
 [![Follow on Twitter](https://img.shields.io/twitter/follow/Vail__.svg?logo=twitter)](https://twitter.com/Vail__)
-
-# Version 2.0
 
 # Subseeker
 A sub-domain enumeration tool. \

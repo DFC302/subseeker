@@ -6,6 +6,9 @@
 ![version](https://img.shields.io/badge/version-2.0.1-dark_green) \
 [![Follow on Twitter](https://img.shields.io/twitter/follow/Vail__.svg?logo=twitter)](https://twitter.com/Vail__)
 
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-dark_green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) \
+**Check changelog.md for latest updates**
+
 # Subseeker
 A sub-domain enumeration tool. \
 Written in python3.

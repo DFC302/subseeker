@@ -92,12 +92,7 @@ def certspotter(headers=None):
 		if data:
 			for row in data:
 				row = row["dns_names"]
-
 				subs.append(row)
-
-				if options().out:
-					with open(options().out, "a") as f:
-						f.write(str(row + "\n"))
 		elif not data:
 			print(colored(f"\nNo data found for {options().domain}", \
 				"yellow"))
@@ -130,6 +125,11 @@ def certspotter(headers=None):
 			
 	for s in subs:
 		print(colored("\n".join(s), "blue"))
+		
+	if options().out:
+		with open(options().out, "a") as f:
+			for s in subs:
+				f.write(str("\n".join(s)))
 
 def certdb(key=False):
 	if options().verbose:

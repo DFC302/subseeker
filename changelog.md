@@ -5,7 +5,7 @@ All notable changes to this project will be kept and updated here.
 **Version 2.1**
 
 **(Oct 10, 2019)**
-#Bugfixes
+# Bugfixes
 * Fixed an issue with certspotter function in searchmodes.py, not properly writing results to output file and displaying a "no data found" error.
 
 # Changes

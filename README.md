@@ -10,8 +10,9 @@
 **Check changelog.md for latest updates**
 
 # Subseeker
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/) \
 A sub-domain enumeration tool. \
-Written in python3.
+Written in Python3
 
 **Special thanks to tools like certspotter, sublist3r, subfinder, knock, and crt.sh. Without tools like these, subseeker.py would not be what it is.**
 

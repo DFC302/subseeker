@@ -126,8 +126,29 @@ OPTIONAL ARGUMENTS: \
 -p Specify page number. \
 -v Verbose mode.
 
+**subseeker virustotal search mode** \
+Description: Search for subdomains using just censys. \
+usage: python3 subseeker --virustotal -d [domain] \
+EX: python3 subseeker --virustotal -d example.com
+
+OPTIONAL ARGUMENTS: \
+-o Choose to send results to an output file. \ 
+-p Specify page number. \
+-v Verbose mode.
+
+**subseeker threatcrowd search mode** \
+Description: Search for subdomains using just censys. \
+usage: python3 subseeker --threatcrowd -d [domain] \
+EX: python3 subseeker --threatcrowd -d example.com
+
+OPTIONAL ARGUMENTS: \
+-o Choose to send results to an output file. \ 
+-p Specify page number. \
+-v Verbose mode.
+
 **subseeker.py subwordsearch mode** \
 Description: Search subdomain keywords through crt.sh. \
+**WARNING: For the other searchmodes (other than crtsh), subseeker fixes the domain for you. So if you do something like: \*.example.com, subseeker will fix it to: example.com. For crtsh and subwordsearch mode, it is not fixed! So whatever domain you type in is the domain that gets parsed, for example: \*.yahoo.com, when using keywords, would come out like so \*[keyword]\*\*.example.com with an extra star.**\
 Note: keywords are processed like so: \*[keyword]\*.[domain] \
 Note: keywords should be written to file with each keyword on a new line, like so:
 

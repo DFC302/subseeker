@@ -4,8 +4,12 @@ All notable changes to this project will be kept and updated here.
 
 **Version 2.1**
 
+**(Oct 15, 2019)**
+# Bug Fixes
+* Fixed issue with censys page mode. Censys may or may not of been displaying data due to wrong type mode for page. Issue is corrected now and is working. 
+
 **(Oct 10, 2019)**
-# Bugfixes
+# Bug fixes
 * Fixed an issue with certspotter function in searchmodes.py, not properly writing results to output file and displaying a "no data found" error.
 
 # Changes

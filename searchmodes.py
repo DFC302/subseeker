@@ -241,7 +241,7 @@ def censys():
 			api_url = "https://censys.io/api/v1/search/certificates"
 
 			regex = r'(?:CN=).+'
-			params = {"query":f"{domain}", "page":f"{page}"}
+			params = {"query":f"{domain}", "page":page}
 
 			response = requests.post(api_url, json=params, auth=(key, secret))
 			data = response.json()

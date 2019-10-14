@@ -112,7 +112,8 @@ def options():
 	parser.add_argument(
 		"-p", "--page",
 		help="Used with certdb and/or censys searchmodes. Specify page number to display.",
-		action="store"
+		action="store",
+		type=int,
 	)
 
 	# Turn on verbose mode.

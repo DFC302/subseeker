@@ -30,8 +30,8 @@ Subseeker is a sub-domain enumeration tool. The tool simply iterates the recon p
 
 Subseeker can also parse crt.sh, certdb, censys, and certspotter individually, as if one were using the actual websites.
 
-However, subseeker flourishes with the help of other tools (see example below). Using tools like certspotter, sublist3r, subfinder, and knock (too name a few), running these tools first into output files and then combining them all into one file, creates a file full of
-subdomains. Using the subseeker (option -S), you can parse each subdomain into a file of sub keywords. From there, you can use subseeker to parse crt.sh for each of these sub keywords, using wildcards to return all variants. You can also now use the keyword option (-k) to create a keyword list on the fly, and use that to parse crt.sh. Doing either of these manually is time consuiming and requires a ton of effort and time. Subseeker however, can do this for you in minutes.
+However, subseeker flourishes with the help of other tools (**see example below**). Using tools like certspotter, sublist3r, subfinder, and knock (too name a few), running these tools first into output files and then combining them all into one file, creates a file full of
+subdomains. Using subseeker, you can parse each subdomain into a file of sub keywords. From there, you can use subseeker to parse crt.sh for each of these sub keywords, using wildcards to return all variants. You can also now use the keyword option (-k) to create a keyword list on the fly, and use that to parse crt.sh. Doing either of these manually is time consuiming and requires a ton of effort and time. Subseeker however, can do this for you in minutes.
 
 # Requirements
 Python 3.x
@@ -87,14 +87,14 @@ optional arguments:
 ```
 
 **subseeker.py default search mode** \
-Description: Search any variation of wildcard through crt.sh, certspotter, certdb, and censys.io \
+Description: Search any variation of wildcard through crt.sh, certspotter, certdb, censys.io, Virustotal, threatcrowd\
 usage: python3 subseeker -d [search format][domain] \
 EX: python3 subseeker -d *.example.com 
 
 OPTIONAL ARGUMENTS: \
--o Choose to send results to an output file. 
--a Use an API to search certspotter, certdb, and censys.io (needed for censys)
--p Specify page number for certdb and censys
+-o Choose to send results to an output file. \
+-a Use an API to search certspotter, certdb, and censys.io (needed for censys) \
+-p Specify page number for certdb and censys \
 -v Verbose mode
 
 **subseeker certspotter search mode** \
@@ -103,7 +103,7 @@ usage: python3 subseeker --certspotter -d [domain] \
 EX: python3 subseeker --certspotter -d example.com
 
 OPTIONAL ARGUMENTS: \
--o Choose to send results to an output file. 
+-o Choose to send results to an output file. \
 -v Verbose mode
 
 **subseeker certdb search mode** \
@@ -122,7 +122,7 @@ usage: python3 subseeker --censys -d [domain] \
 EX: python3 subseeker --censys -d example.com
 
 OPTIONAL ARGUMENTS: \
--o Choose to send results to an output file. \ 
+-o Choose to send results to an output file. \
 -p Specify page number. \
 -v Verbose mode.
 
@@ -132,7 +132,7 @@ usage: python3 subseeker --virustotal -d [domain] \
 EX: python3 subseeker --virustotal -d example.com
 
 OPTIONAL ARGUMENTS: \
--o Choose to send results to an output file. \ 
+-o Choose to send results to an output file. \
 -p Specify page number. \
 -v Verbose mode.
 
@@ -142,12 +142,12 @@ usage: python3 subseeker --threatcrowd -d [domain] \
 EX: python3 subseeker --threatcrowd -d example.com
 
 OPTIONAL ARGUMENTS: \
--o Choose to send results to an output file. \ 
+-o Choose to send results to an output file. \
 -p Specify page number. \
 -v Verbose mode.
 
 **subseeker.py subwordsearch mode** \
-Description: Search subdomain keywords through crt.sh. \
+Description: Search subdomain keywords through crt.sh. (will also search domain through certspotter, censys, Virustotal, and ThreatCrowd) \
 **WARNING: For the other searchmodes (other than crtsh), subseeker fixes the domain for you. So if you do something like: \*.example.com, subseeker will fix it to: example.com. For crtsh and subwordsearch mode, it is not fixed! So whatever domain you type in is the domain that gets parsed, for example: \*.yahoo.com, when using keywords, would come out like so \*[keyword]\*\*.example.com with an extra star.**\
 Note: keywords are processed like so: \*[keyword]\*.[domain] \
 Note: keywords should be written to file with each keyword on a new line, like so:

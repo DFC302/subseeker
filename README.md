@@ -79,6 +79,8 @@ optional arguments:
 ```
 
 # Usage
+**Note: API credentials needed for censys and virustotal.**
+
 **subseeker default search** \
 Description: Search for subdomains from a top level domain. Wildcard notation excepted.
 usage: subseeker --domain [domain] \
@@ -90,7 +92,7 @@ OPTIONAL ARGUMENTS: \
 --api Use an API to search certspotter, certdb, and censys.io (needed for censys and virustotal) \
 --page Specify page number for certdb and censys \
 
-**subseeker.py keyword search** \
+**subseeker keyword search** \
 Description: Search for subdomains from a top level domain using keywords to find deep level subdomains.(will also search domain through certspotter, censys, Virustotal, and ThreatCrowd)
 
 **WARNING: For searchmodes other than crtsh, some sites do not accept wildcard notation. So subseeker will fix the domain for you. For example, if you do something like: \*.example.com, subseeker will fix it to: example.com. Since crtsh accepts wildcard notation it will not be fixed! Whatever domain you type in is the domain that gets parsed, for example: \*.yahoo.com, when using keywords from [--keywords] option or from a file, will come out like so \*[keyword]\*\*.example.com with an extra star. This will most likely cause crtsh to not return results.**
@@ -118,7 +120,7 @@ OPTIONAL ARGUMENTS: \
 
 The keywords.txt file is a file that is provided for you, that can be used with keyword searches.
 
-**subseeker.py parse generate keywords** \
+**subseeker parse generate keywords** \
 Description: Parse through sublister, certspotter, etc. text outputs and create sub domain keywords. \
 
 **Special Note: If using sublist3r, use sublist3r's option [-o] to send results to outfile. (Subseeker is designed to parse from a text file. Using standard redirection ">",">>", copies ANSI color codes, which will conflict with parsing.)**
@@ -128,6 +130,26 @@ EX: subseeker --generate --domain example.com --file results.txt
 
 OPTIONAL ARGUMENTS: \
 --oout Choose to send results to an output file.
+
+**subseeker singlesearch** \
+Description: Search crtsh, certspotter, certdb, censys, virustotal, threatcrowd, individually. \
+usage: subseeker --singlesearch [site option]
+
+Options: \
+  crtsh \
+  certspotter \
+  certdb \
+  censys \
+  virustotal \
+  threatcrowd
+
+EX: subseeker --singlesearch certspotter
+
+OPTIONAL ARGUMENTS: \
+--useragent Choose a different useragent, default is Firefox. \
+--out Choose to send results to an output file. \
+--api Use an API to search certspotter, certdb, and censys.io (needed for censys and virustotal) \
+--page Specify page number for certdb and censys \
 
 **Configure API credentials in core/subseeker_config.json file.**
 

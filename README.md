@@ -10,19 +10,7 @@
 **Check changelog.md for latest updates**
 
 # Subseeker
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/) \
-A sub-domain enumeration tool. \
-Written in Python3
-
-**Special thanks to tools like certspotter, sublist3r, subfinder, knock, and crt.sh. Without tools like these, subseeker.py would not be what it is.**
-
-**You can find these below:** \
-Sublist3r:    <https://github.com/aboul3la/Sublist3r> \
-Crtsh:        <https://crt.sh/> \
-Certdb:       https://certdb.com/ \
-Certspotter:  https://sslmate.com/certspotter/ \
-Subfinder:    https://github.com/subfinder/subfinder \
-Knock:        https://github.com/guelfoweb/knock
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
 
 # Description:
@@ -30,9 +18,11 @@ Subseeker is a sub-domain enumeration tool, which simply iterates the recon proc
 
 # What makes it different?
 (**see example below**)
-Subseeker flourishes with the use of keywords. These keywords can be found in the wordlists folder. However, keywords can also be made up on the fly using the [--keywords] option. Subseeker can also use the output from other tools like sublister, subfinder, knock, etc. Using the [--createsubs] option on the output files from these tools, subseeker will create a list of keywords that can then be used to find deep level subdomains. This in turn, creates a huge list of subdomains returned for the user.
+Subseeker flourishes with the use of keywords. These keywords can be found in the wordlists folder. However, keywords can also be made up on the fly using the [--keywords] option. Subseeker can also use the output from other tools like sublister, subfinder, knock, etc. Using the [--generate] option on the output files from these tools, subseeker will create a list of keywords that can then be used to find deep level subdomains. This in turn, creates a huge list of subdomains returned for the user.
 
-Subseeker can also parse data from certificate sites individually, if the user does not want to search all certificate sites at once. 
+Subseeker also parses all domains and keywords into a set, so dupliate domains are removed. No need to uniquely sort the output files.
+
+Subseeker can also parse data from certificate sites individually, if the user does not want to search all certificate sites at once using the [--singlesearch (option)] option.
 
 Subseeker parses data from crtsh, certdb, censys, certspotter, threatcrowd, and virustotal.
 
@@ -61,101 +51,97 @@ chmod 755 core/subseeker.py
 
 # Usage
 ```
-usage: subseeker [-h] [-d DOMAIN] [-k KEYWORDS [KEYWORDS ...]] [-C] [-f FILE]
-                 [-o OUT] [-t THREADS] [-u USERAGENT] [-a] [--certspotter]
-                 [--certdb] [--censys] [--virustotal] [--threatcrowd]
-                 [-p PAGE] [-v] [-V]
+usage: subseeker [-h] [--domain DOMAIN] [--singlesearch SINGLESEARCH]
+                 [--keywords KEYWORDS [KEYWORDS ...]] [--generate]
+                 [--file FILE] [--out OUT] [--threads THREADS]
+                 [--useragent USERAGENT] [--api] [--page PAGE] [--version]
 
 optional arguments:
   -h, --help            show this help message and exit
-  -d DOMAIN, --domain DOMAIN
-                        Specify domain to search.
-  -k KEYWORDS [KEYWORDS ...], --keywords KEYWORDS [KEYWORDS ...]
+  --domain DOMAIN       Specify domain to search.
+  --singlesearch SINGLESEARCH
+                        Search using a specific certificate site.
+  --keywords KEYWORDS [KEYWORDS ...]
                         Add a list of keywords.
-  -C, --createsubs      Create a list of sub domain keywords from a file
+  --generate            Create a list of sub domain keywords from a file
                         containing subdomains.
-  -f FILE, --file FILE  Specify a file containing keywords to parse crt.sh OR
+  --file FILE           Specify a file containing keywords to parse crt.sh OR
                         to create sub keywords from.
-  -o OUT, --out OUT     Specify a file to write results too.
-  -t THREADS, --threads THREADS
-                        Specify number of threads to be used when performing
+  --out OUT             Specify a file to write results too.
+  --threads THREADS     Specify number of threads to be used when performing
                         keyword search.
-  -u USERAGENT, --useragent USERAGENT
+  --useragent USERAGENT
                         Specify a user-agent to use. Default is a firefox UA.
-  -a, --api             Turn on api.
-  --certspotter         Search just using certspotter.
-  --certdb              Search just using certdb.
-  --censys              Search just using censys.
-  --virustotal          Seach just using virustotal.
-  --threatcrowd         Search just using threatcrowd.
-  -p PAGE, --page PAGE  Used with certdb and/or censys searchmodes. Specify
+  --api                 Turn on api.
+  --page PAGE           Used with certdb and/or censys searchmodes. Specify
                         page number to display.
-  -v, --verbose         Turn on verbose mode.
-  -V, --version         Display version information
+  --version             Display version information
 ```
 
-**subseeker.py default search mode** \
-Description: Search any variation of wildcard through crt.sh, certspotter, certdb, censys.io, Virustotal, threatcrowd\
-usage: python3 subseeker -d [search format][domain] \
-EX: python3 subseeker -d *.example.com 
+# Usage
+**subseeker default search** \
+Description: Search for subdomains from a top level domain. Wildcard notation excepted.
+usage: subseeker --domain [domain] \
+EX: subseeker --domain *.example.com 
 
 OPTIONAL ARGUMENTS: \
--o Choose to send results to an output file. \
--a Use an API to search certspotter, certdb, and censys.io (needed for censys) \
--p Specify page number for certdb and censys \
--v Verbose mode
+--useragent Choose a different useragent, default is Firefox. \
+--out Choose to send results to an output file. \
+--api Use an API to search certspotter, certdb, and censys.io (needed for censys and virustotal) \
+--page Specify page number for certdb and censys \
 
+**subseeker.py keyword search** \
+Description: Search for subdomains from a top level domain using keywords to find deep level subdomains.(will also search domain through certspotter, censys, Virustotal, and ThreatCrowd)
 
-**subseeker.py subwordsearch mode** \
-Description: Search subdomain keywords through crt.sh. (will also search domain through certspotter, censys, Virustotal, and ThreatCrowd) \
-**WARNING: For the other searchmodes (other than crtsh), subseeker fixes the domain for you. So if you do something like: \*.example.com, subseeker will fix it to: example.com. For crtsh and subwordsearch mode, it is not fixed! So whatever domain you type in is the domain that gets parsed, for example: \*.yahoo.com, when using keywords, would come out like so \*[keyword]\*\*.example.com with an extra star.**\
+**WARNING: For searchmodes other than crtsh, some sites do not accept wildcard notation. So subseeker will fix the domain for you. For example, if you do something like: \*.example.com, subseeker will fix it to: example.com. Since crtsh accepts wildcard notation it will not be fixed! Whatever domain you type in is the domain that gets parsed, for example: \*.yahoo.com, when using keywords from [--keywords] option or from a file, will come out like so \*[keyword]\*\*.example.com with an extra star. This will most likely cause crtsh to not return results.**
+
 Note: keywords are processed like so: \*[keyword]\*.[domain] \
-Note: keywords should be written to file with each keyword on a new line, like so:
+Note: If keywords are written to a file, each keyword should be on a new line, like so:
 
 dev \
 test \
 ops \
 mail
 
-**Special Note:** \
-**Domain must be without "." or "\*" notation. For example: example.com NOT .example.com or \*.example.com**\
-usage: python3 subseeker -d [domain] -f [file containing subdomain keywords] \
-usage: python3 subseeker -d [domain] -k [keywords (separated by spaces)] \
-EX: python3 subseeker -d example.com -f domain_keywords.txt 
+usage: subseeker --domain [domain] --file [file containing subdomain keywords] \
+usage: subseeker --domain [domain] --keywords [keywords (separated by spaces, NOT COMMAS!!!)] \
+EX: subseeker --domain example.com --file domain_keywords.txt
+EX: subseeker --domain example.com --keywords test dev product
 
 OPTIONAL ARGUMENTS: \
--H Choose a different header, default is Firefox. \
--t Choose number of threads. \
--v Verbose mode. \
--o Choose to send results to an output file. \
--k Choose keywords to parse domains with. \
--a Enable search with API credentials. \
--p Specify page mode.
+--useragent Choose a different useragent, default is Firefox. \
+--threads Choose number of threads. \
+--out Choose to send results to an output file. \
+--keywords Choose keywords to parse domains with. \
+--api Enable search with API credentials. \
+--page Specify page mode for censys and certdb.
 
-The keywords.txt file is a file that is provided, that can be used with multi-search mode.
+The keywords.txt file is a file that is provided for you, that can be used with keyword searches.
 
-**subseeker.py parse createsubs mode** \
-Description: Parse through sublister, certspotter, etc. text outputs for sub domain keywords. \
-Note: If using sublist3r, use sublist3r's option [-o] to send results to outfile. (Subseeker is designed to parse from a text file. Using standard redirection ">",">>", copies ANSI color codes, which will conflict with parsing.) \
-usage: python3 subseeker -C -d [domain] -f [file contaning output from certspotter, sublister, etc. results] \
-EX: python3 subseeker -C -d example.com -f certspotter_results.txt
+**subseeker.py parse generate keywords** \
+Description: Parse through sublister, certspotter, etc. text outputs and create sub domain keywords. \
+
+**Special Note: If using sublist3r, use sublist3r's option [-o] to send results to outfile. (Subseeker is designed to parse from a text file. Using standard redirection ">",">>", copies ANSI color codes, which will conflict with parsing.)**
+
+usage: subseeker --generate --domain [domain] --file [file contaning output from certspotter, sublister, etc. results] \
+EX: subseeker --generate --domain example.com --file results.txt
 
 OPTIONAL ARGUMENTS: \
--o Choose to send results to an output file.
+--oout Choose to send results to an output file.
 
-**Configure API credentials in config.json file.**
+**Configure API credentials in core/subseeker_config.json file.**
 
 # Example usage:
 **Here is an example usage on how you can fully take advantage of subseeker.**
 
-Yes, subseeker can locate subdomains on its own. However, it was built around the idea of using sub domain keywords to parse crtsh. You can aquire these sub domain keywords by using subeeker to parse crtsh, censys, certspotter, and certdb into an output file or files and/or by using other subdomain tools. From there, using the createsubs option (-C), it will parse the second layer of each domain to create keywords.
+Yes, subseeker can locate subdomains on its own. However, it was built around the idea of using sub domain keywords to parse crtsh for even greater results. You can aquire these sub domain keywords by using subeeker to parse crtsh, censys, certspotter, and certdb into an output file or files and/or by using other subdomain tools. From there, using the [--generate] option, subseeker will parse the second layer of each domain to create keywords.
 
 For example, say I generate subdomains like so: \
 test.example.com \
 test.dev.example.com \
 products.example.com 
 
-Using the -C option will then create a list of keywords like so: \
+Using the [--generate] option will then create a list of keywords like so: \
 test \
 dev \
 products

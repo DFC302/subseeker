@@ -18,6 +18,7 @@ All notable changes to this project will be kept and updated here.
 	x No data found
 	! Error/Warnings
 * Created a basic regex to find domain easier
+* Removed verbose mode
 
 **Version 2.1.1**
 

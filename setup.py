@@ -29,7 +29,7 @@ setuptools.setup(
      ],
      entry_points={
             'console_scripts': [
-                "subseeker = core.subseeker:main",
+                "subseeker = subseeker_core.subseeker:main",
             ],
         },
 )

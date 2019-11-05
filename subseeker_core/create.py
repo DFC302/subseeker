@@ -2,16 +2,16 @@ from subseeker_core.options import options
 import re
 
 class GenerateKeywords():
-	# Create sub domain keywords to search from
-	def create(self):
-		if options().domain:
-			domain_regex = r"[a-zA-Z0-9].*"
-			domain = re.findall(domain_regex, options().domain)[0]
+# 	# Create sub domain keywords to search from
+# 	def create(self):
+# 		if options().domain:
+# 			domain_regex = r"[a-zA-Z0-9].*"
+# 			domain = re.findall(domain_regex, options().domain)[0]
 
-		print(domain)
+		#print(domain)
 		# Specify regex to be used
 		# Regex should grab every sub domain after domain
-		regex = f"\w*\.(?={domain})"
+		regex = f"\w*\.(?={options().domain})"
 
 		# Create a set to remove duplicates
 		subset=set()

@@ -90,6 +90,9 @@ class SubSeeker():
 
 		except KeyError:
 			pass
+		
+		except ValueError:
+			pass
 
 	def certdb(self):
 		if options().page:
@@ -126,6 +129,9 @@ class SubSeeker():
 			pass
 
 		except IndexError:
+			pass
+		
+		except ValueError:
 			pass
 
 	def censys(self):
@@ -170,6 +176,9 @@ class SubSeeker():
 
 		except KeyError:
 			pass
+		
+		except ValueError:
+			pass
 
 	def virustotal(self):
 		try:
@@ -201,6 +210,9 @@ class SubSeeker():
 
 		except IndexError:
 			pass
+		
+		except ValueError:
+			pass
 
 	def threatcrowd(self):
 		try:
@@ -223,6 +235,9 @@ class SubSeeker():
 			pass
 
 		except IndexError:
+			pass
+		
+		except ValueError:
 			pass
 
 

@@ -126,10 +126,11 @@ Description: Parse through sublister, certspotter, etc. text outputs and create 
 **Special Note: If using sublist3r, use sublist3r's option [-o] to send results to outfile. (Subseeker is designed to parse from a text file. Using standard redirection ">",">>", copies ANSI color codes, which will conflict with parsing.)**
 
 usage: subseeker --generate --domain [domain] --file [file contaning output from certspotter, sublister, etc. results] \
+**Domain should be without wildcard notation, www, https, etc. Just the name of the domain and level (com, org, etc)** \
 EX: subseeker --generate --domain example.com --file results.txt
 
 OPTIONAL ARGUMENTS: \
---oout Choose to send results to an output file.
+--out Choose to send results to an output file.
 
 **subseeker singlesearch** \
 Description: Search crtsh, certspotter, certdb, censys, virustotal, threatcrowd, individually. \

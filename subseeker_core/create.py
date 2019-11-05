@@ -2,8 +2,8 @@ from subseeker_core.options import options
 import re
 
 class GenerateKeywords():
-# 	# Create sub domain keywords to search from
-# 	def create(self):
+	# Create sub domain keywords to search from
+	def create(self):
 # 		if options().domain:
 # 			domain_regex = r"[a-zA-Z0-9].*"
 # 			domain = re.findall(domain_regex, options().domain)[0]

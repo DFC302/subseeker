@@ -24,7 +24,7 @@ Subseeker also parses all domains and keywords into a set, so dupliate domains a
 
 Subseeker can also parse data from certificate sites individually, if the user does not want to search all certificate sites at once using the [--singlesearch (option)] option.
 
-Subseeker parses data from crtsh, certdb, censys, certspotter, threatcrowd, and virustotal.
+Subseeker parses data from crtsh, certdb, censys, certspotter, threatcrowd, virustotal, securitytrails.
 
 
 # Requirements
@@ -79,7 +79,7 @@ optional arguments:
 ```
 
 # Usage
-**Note: API credentials needed for censys and virustotal.**
+**Note: API credentials needed for censys, virustotal, securitytrails.**
 
 **subseeker default search** \
 Description: Search for subdomains from a top level domain. Wildcard notation excepted.
@@ -89,7 +89,7 @@ EX: subseeker --domain *.example.com
 OPTIONAL ARGUMENTS: \
 --useragent Choose a different useragent, default is Firefox. \
 --out Choose to send results to an output file. \
---api Use an API to search certspotter, certdb, and censys.io (needed for censys and virustotal) \
+--api Use an API to search certspotter, certdb, and censys.io (needed for censys, virustotal, securitytrails) \
 --page Specify page number for certdb and censys \
 
 **subseeker keyword search** \
@@ -149,7 +149,7 @@ EX: subseeker --singlesearch certspotter
 OPTIONAL ARGUMENTS: \
 --useragent Choose a different useragent, default is Firefox. \
 --out Choose to send results to an output file. \
---api Use an API to search certspotter, certdb, and censys.io (needed for censys and virustotal) \
+--api Use an API to search certspotter, certdb, and censys.io (needed for censys, virustotal, securitytrails) \
 --page Specify page number for certdb and censys \
 
 **Configure API credentials in core/subseeker_config.json file.**

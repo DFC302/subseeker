@@ -4,6 +4,13 @@ All notable changes to this project will be kept and updated here.
 
 **Version 2.2.2**
 
+**(Nov 6, 2019)**
+# Changes
+* Added verbose mode back in to help with errors.
+* Added new search site, securitytrails. (API credentials needed)
+* Fixed config file not found.
+* Able to display errors now if API credentials are not found.
+
 **(Nov 2, 2019)**
 # Bug Fixes
 * Reduced code

@@ -19,6 +19,11 @@
 		{
 			"virustotal": "04",
 			"key": ""
+		},
+
+		{
+			"securitytrails": "05",
+			"key": ""
 		}
 	]
 }

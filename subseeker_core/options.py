@@ -93,6 +93,12 @@ def options():
 		action="store_true",
 	)
 
+	parser.add_argument(
+		"--verbose",
+		help="Display extra verbose information, such as errors.",
+		action="store_true",
+	)
+
 	# if not arguments are given, print usage message
 	if len(sys.argv[1:]) == 0:
 		parser.print_help()

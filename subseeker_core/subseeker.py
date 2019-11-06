@@ -42,6 +42,7 @@ def main():
 			SubSeeker().threatcrowd()
 			SubSeeker().censys()
 			SubSeeker().virustotal()
+			SubSeeker().securitytrails()
 			SubSeeker().print_domains()
 
 		except KeyboardInterrupt:
@@ -53,32 +54,50 @@ def main():
 			sys.exit(1)
 
 		if options().singlesearch.lower() == "crtsh":
+			Process().title()
+			Process().process()
 			SubSeeker().crtsh()
 			SubSeeker().print_domains()
 
 		elif options().singlesearch.lower() == "certspotter":
+			Process().title()
+			Process().process()
 			SubSeeker().certspotter()
 			SubSeeker().print_domains()
 
 		elif options().singlesearch.lower() == "certdb":
+			Process().title()
+			Process().process()
 			SubSeeker().certdb()
 			SubSeeker().print_domains()
 
 		elif options().singlesearch.lower() == "threatcrowd":
+			Process().title()
+			Process().process()
 			SubSeeker().threatcrowd()
 			SubSeeker().print_domains()
 
 		elif options().singlesearch.lower() == "censys":
+			Process().title()
+			Process().process()
 			SubSeeker().censys()
 			SubSeeker().print_domains()
 
 		elif options().singlesearch.lower() == "virustotal":
+			Process().title()
+			Process().process()
 			SubSeeker().virustotal()
 			SubSeeker().print_domains()
 
-		else:
-			print("\nsinglesearch usage: subseeker --domain [domain] --singlesearch [option]")
-			print("Options:\n\tcrtsh\n\tcertspotter\n\tcertdb\n\tthreatcrowd\n\tcensys\n\tvirustotal\n")
+		elif options().singlesearch.lower() == "securitytrails":
+			Process().title()
+			Process().process()
+			SubSeeker().securitytrails()
+			SubSeeker().print_domains()
+
+		# elif options().singlesearch == None or options().singlesearch == " " or options().singlesearch == "":
+		# 	print("\nsinglesearch usage: subseeker --domain [domain] --singlesearch [option]")
+		# 	print("Options:\n\tcrtsh\n\tcertspotter\n\tcertdb\n\tthreatcrowd\n\tcensys\n\tvirustotal\n\tsecuritytrails\n")
 
 	else:
 		if not options().domain:
@@ -94,6 +113,7 @@ def main():
 			SubSeeker().threatcrowd()
 			SubSeeker().censys()
 			SubSeeker().virustotal()
+			SubSeeker().securitytrails()
 			SubSeeker().print_domains()
 
 		except KeyboardInterrupt:

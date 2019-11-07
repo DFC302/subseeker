@@ -132,18 +132,14 @@ class SubSeeker():
 					if self.apikey == "":
 						print(f"{self.YELLOW}[!] API credentials not found for {self.WHITE}certdb.{self.RESET}")
 
-			url = f"https://api.spyse.com/v1/subdomains?api_token={self.apikey} \
-			&domain={self.domain}&page={page}"
+			url = f"https://api.spyse.com/v1/subdomains?api_token={self.apikey}&domain={self.domain}&page={page}"
 
 			response = requests.get(url, headers={'User-Agent':subseeker_core.useragents.useragent()})
 			data = response.json()
 
-			i = 0
-
 			if data:
 				for row in data:
-					subdomains = data['records'][i]['domain']
-					i += 1
+					subdomains = row["domain"]
 					self.domains.add(subdomains)
 
 			elif not data:

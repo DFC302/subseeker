@@ -55,12 +55,15 @@ usage: subseeker [-h] [--domain DOMAIN] [--singlesearch SINGLESEARCH]
                  [--keywords KEYWORDS [KEYWORDS ...]] [--generate]
                  [--file FILE] [--out OUT] [--threads THREADS]
                  [--useragent USERAGENT] [--api] [--page PAGE] [--version]
+                 [--verbose]
 
 optional arguments:
   -h, --help            show this help message and exit
   --domain DOMAIN       Specify domain to search.
   --singlesearch SINGLESEARCH
-                        Search using a specific certificate site.
+                        Search using a specific certificate site. Use
+                        --singlesearch options to list available search
+                        options.
   --keywords KEYWORDS [KEYWORDS ...]
                         Add a list of keywords.
   --generate            Create a list of sub domain keywords from a file
@@ -76,6 +79,7 @@ optional arguments:
   --page PAGE           Used with certdb and/or censys searchmodes. Specify
                         page number to display.
   --version             Display version information
+  --verbose             Display extra verbose information, such as errors.
 ```
 
 # Usage
@@ -135,6 +139,8 @@ OPTIONAL ARGUMENTS: \
 **subseeker singlesearch** \
 Description: Search crtsh, certspotter, certdb, censys, virustotal, threatcrowd, individually. \
 usage: subseeker --singlesearch [site option]
+
+**Use --singlesearch options (display available options.)**
 
 Options: \
   crtsh | Search crtsh database\

@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setuptools.setup(
 	name='subseeker',
-	version='2.1.1',
+	version='2.1.2',
 	author="Matthew Greer",
 	author_email="pydev302@gmail.com",
         license='MIT',

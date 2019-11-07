@@ -22,6 +22,7 @@ class Process():
 		print(f"{self.MAG}[~]{self.CYAN} Checking Censys...{self.RESET}")
 		print(f"{self.MAG}[~]{self.CYAN} Checking VirusTotal...{self.RESET}")
 		print(f"{self.MAG}[~]{self.CYAN} Checking ThreatCrowd...{self.RESET}")
+		print(f"{self.MAG}[~]{self.CYAN} Checking SecurityTrails...{self.RESET}")
 		print("\n")
 
 	def title(self):
@@ -58,7 +59,7 @@ class Process():
 	def version(self):
 		if options().version:
 			print(f"{self.YELLOW}\t Title:{self.RESET}   Subseeker")
-			print(f"{self.YELLOW}\t Version:{self.RESET} 2.2.2")
+			print(f"{self.YELLOW}\t Version:{self.RESET} 2.1.2")
 			print(f"{self.YELLOW}\t Author:{self.RESET}  Matthew Greer")
 			print(f"{self.YELLOW}\t Twitter:{self.RESET} https://twitter.com/Vail__")
 			print(f"{self.YELLOW}\t Github:{self.RESET}  https://github.com/DFC302")

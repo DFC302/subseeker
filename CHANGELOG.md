@@ -2,14 +2,21 @@
 
 All notable changes to this project will be kept and updated here.
 
-**Version 2.2.2**
+**Version 2.1.2**
 
 **(Nov 6, 2019)**
+# Bug Fixes
+* Fixed a small print line issue to display when searching security trails.
+* When searching single sites, fixed issue where subseeker displayed searching all sites. Now it will only display, "searching for", the site you are searching for.
+* Added ability to list available sites to search in singlesearch.
+* Added system exits after searches
+
 # Changes
 * Added verbose mode back in to help with errors.
 * Added new search site, securitytrails. (API credentials needed)
 * Fixed config file not found.
 * Able to display errors now if API credentials are not found.
+* Added ability to search keywords with just crtsh.
 
 **(Nov 2, 2019)**
 # Bug Fixes

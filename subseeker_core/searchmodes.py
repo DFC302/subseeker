@@ -132,7 +132,7 @@ class SubSeeker():
 					if self.apikey == "":
 						print(f"{self.YELLOW}[!] API credentials not found for {self.WHITE}certdb.{self.RESET}")
 
-			url = f"https://api.spyse.com/v1/subdomains?api_token={self.apikey}&domain={self.domain}&page={self.page}"
+			url = f"https://api.spyse.com/v1/subdomains?api_token={self.apikey}&domain={self.domain}&page={page}"
 
 			response = requests.get(url, headers={'User-Agent':subseeker_core.useragents.useragent()})
 			data = response.json()

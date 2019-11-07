@@ -73,49 +73,49 @@ def main():
 
 		if options().singlesearch.lower() == "crtsh":
 			Process().title()
-			print(f"{MAG}[~]{CYAN} Checking Crtsh...{RESET}")
+			print(f"{MAG}[~]{CYAN} Checking Crtsh...{RESET}\n")
 			SubSeeker().crtsh()
 			SubSeeker().print_domains()
 			sys.exit(0)
 
 		elif options().singlesearch.lower() == "certspotter":
 			Process().title()
-			print(f"{MAG}[~]{CYAN} Checking Certspotter...{RESET}")
+			print(f"{MAG}[~]{CYAN} Checking Certspotter...{RESET}\n")
 			SubSeeker().certspotter()
 			SubSeeker().print_domains()
 			sys.exit(0)
 
 		elif options().singlesearch.lower() == "certdb":
 			Process().title()
-			print(f"{MAG}[~]{CYAN} Checking CertDB...{RESET}")
+			print(f"{MAG}[~]{CYAN} Checking CertDB...{RESET}\n")
 			SubSeeker().certdb()
 			SubSeeker().print_domains()
 			sys.exit(0)
 
 		elif options().singlesearch.lower() == "threatcrowd":
 			Process().title()
-			print(f"{MAG}[~]{CYAN} Checking threatcrowd...{RESET}")
+			print(f"{MAG}[~]{CYAN} Checking threatcrowd...{RESET}\n")
 			SubSeeker().threatcrowd()
 			SubSeeker().print_domains()
 			sys.exit(0)
 
 		elif options().singlesearch.lower() == "censys":
 			Process().title()
-			print(f"{MAG}[~]{CYAN} Checking Censys...{RESET}")
+			print(f"{MAG}[~]{CYAN} Checking Censys...{RESET}\n")
 			SubSeeker().censys()
 			SubSeeker().print_domains()
 			sys.exit(0)
 
 		elif options().singlesearch.lower() == "virustotal":
 			Process().title()
-			print(f"{MAG}[~]{CYAN} Checking VirusTotal...{RESET}")
+			print(f"{MAG}[~]{CYAN} Checking VirusTotal...{RESET}\n")
 			SubSeeker().virustotal()
 			SubSeeker().print_domains()
 			sys.exit(0)
 
 		elif options().singlesearch.lower() == "securitytrails":
 			Process().title()
-			print(f"{MAG}[~]{CYAN} Checking SecurityTrails...{RESET}")
+			print(f"{MAG}[~]{CYAN} Checking SecurityTrails...{RESET}\n")
 			SubSeeker().securitytrails()
 			SubSeeker().print_domains()
 			sys.exit(0)
@@ -123,7 +123,7 @@ def main():
 		elif options().singlesearch.lower() == "mcrtsh":
 			if options().file or options().keywords and options().domain:
 				Process().title()
-				print(f"{MAG}[~]{CYAN} Checking Crtsh...{RESET}")
+				print(f"{MAG}[~]{CYAN} Checking Crtsh...{RESET}\n")
 				SubSeeker().thread_execution()
 				SubSeeker().print_domains()
 				sys.exit(0)

@@ -6,6 +6,7 @@ All notable changes to this project will be kept and updated here.
 
 **(Nov 6, 2019)**
 # Bug Fixes
+* Fixed issues with certdb not displaying the full amount of subdomains.
 * Fixed a small print line issue to display when searching security trails.
 * When searching single sites, fixed issue where subseeker displayed searching all sites. Now it will only display, "searching for", the site you are searching for.
 * Added ability to list available sites to search in singlesearch.

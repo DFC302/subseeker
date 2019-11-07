@@ -3,7 +3,7 @@
 </p>
 
 [![Build Status](https://travis-ci.org/DFC302/subseeker.svg?branch=master)](https://travis-ci.org/DFC302/subseeker) \
-![version](https://img.shields.io/badge/version-2.0.1-dark_green) \
+![version](https://img.shields.io/badge/version-2.1.2-dark_green) \
 [![Follow on Twitter](https://img.shields.io/twitter/follow/Vail__.svg?logo=twitter)](https://twitter.com/Vail__)
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-dark_green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) \
@@ -137,12 +137,14 @@ Description: Search crtsh, certspotter, certdb, censys, virustotal, threatcrowd,
 usage: subseeker --singlesearch [site option]
 
 Options: \
-  crtsh \
-  certspotter \
-  certdb \
-  censys \
-  virustotal \
-  threatcrowd
+  crtsh | Search crtsh database\
+  mcrtsh | Search crtsh database using keywords
+  certspotter | Search certspotter database \
+  certdb | Search certdb database \
+  censys | Search censys database (need API) \
+  virustotal | Search virustotal database (need API) \
+  threatcrowd | Search threatcrowd database \
+  securitytrails | Search security trails database. (need API)
 
 EX: subseeker --singlesearch certspotter
 

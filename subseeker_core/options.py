@@ -19,7 +19,7 @@ def options():
 	# single search mode
 	parser.add_argument(
 		"--singlesearch",
-		help="Search using a specific certificate site.",
+		help="Search using a specific certificate site. Use --singlesearch options to list available search options.",
 		action="store",
 		type=str,
 	)

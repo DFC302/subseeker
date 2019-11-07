@@ -8,7 +8,7 @@ All notable changes to this project will be kept and updated here.
 # Bug Fixes
 * Fixed issues with certdb not displaying the full amount of subdomains.
 * Fixed a small print line issue to display when searching security trails.
-* When searching single sites, fixed issue where subseeker displayed searching all sites. Now it will only display, "searching for", the site you are searching for.
+* When searching single sites, fixed issue where subseeker displayed searching all sites. Now it will only display, "searching for", the site you are using to parse subdomains.
 * Added ability to list available sites to search in singlesearch.
 * Added system exits after searches
 
